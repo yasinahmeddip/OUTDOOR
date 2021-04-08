@@ -1,0 +1,311 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 1140px;
+    margin: 0 auto;
+}
+.banner-area{
+    background: url(../img/50.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: auto;
+    width: 100%;
+    height: 85vh;
+    background-color: rgba(0, 0, 0, .2);
+    background-blend-mode: overlay;
+
+}
+.banner{
+    width: 100%;
+
+}
+.banner-top{
+    display: flex;
+}
+.logo{
+    flex-basis: 20%;
+    padding-top: 24px;
+}
+.logo img{
+    width: 50%;
+}
+.nav{
+    flex-basis: 60%;
+    text-align: right;
+}
+.nav ul li{
+    display: inline-block;
+    list-style: none;
+    padding-top: 24px;
+}
+.nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding-right: 20px;
+    line-height: 45px;
+    font-family: ;
+}
+.banner-button{
+    flex-basis: 20%;
+    padding: 25px 10px;
+}
+.banner-button button{
+    border: 2px solid #fff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    background: transparent;
+    color: #fff;
+    font-size: 15px;
+    font-family: ;
+}
+.banner-button button:hover{
+    cursor: pointer;
+    transition: .5s;
+    transform: translateY(10px);
+}
+.banner-bottom{
+    text-align: center;
+    color: #fff;
+    padding: 220px;
+}
+.banner-bottom h3{
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+.banner-bottom h1{
+    font-size: 60PX;
+    padding: 15px 0px;
+    font-family: ;
+}
+.bottom-botton button{
+    padding: 18px 30px;
+    background-color: #fb2056;
+    border: none;
+    border-radius: 25px;
+    letter-spacing: 2px;
+    font-family: ;
+    margin-top: 50px;
+}
+.bottom-botton button a{
+    text-decoration: none;
+    color: #fff;
+}
+.bottom-botton button:hover{
+    cursor: pointer;
+    transition: 0.5s;
+    transform: translateY(10px);
+}
+.banner-bottom p{
+    width: 80px;
+    height: 1px;
+    background-color: tomato;
+    margin: 0 auto;
+}
+.banner-lower{
+    background: #f4f5f9;
+    width: 100%;
+}
+.lower{
+    padding: 60px 0px;
+    display: flex;
+    justify-content: center;
+    padding-right: 150px;
+}
+.lower-left{
+    width: 140px;
+}
+.lower-left img{
+    width: 100px;
+    margin-top: -10px;
+    height: 100px;
+}
+.lower-right{
+    text-align: center;
+}
+.lower-right p{
+    font-size: 20px;
+    color: #867879;
+}
+.lower-right h6{
+    padding-top: 25px;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: #867B79;
+    font-family: ;
+}
+.intro-area{
+    width: 100%;
+}
+.intro{
+    padding: px 0px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.intro-top{
+    text-align: center;
+    padding-bottom: 50px;
+    margin-top: 50px;
+}
+.intro-top h2{
+    padding-bottom: 15px;
+    font-size: 30px;
+    font-family: ;
+}
+.intro-top p{
+    width: 50ox;
+    height: 2px;
+    background-color: #ff6347;
+    margin: 0 auto;
+}
+.intro-bottom{
+    display: flex;
+    margin-left: 200px;
+    
+}
+.gallery{
+    text-align: center;
+    margin: 16px;
+    width: 350px;
+    padding: 40px;
+}
+.gallery img{
+    width: 110%;
+}
+.gallery img:hover{
+    box-shadow: 8px 12px 8px 2px;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+.gallery h4{
+    padding-top: 30px;
+    padding-bottom: 15px;
+    font-size: 23px;
+    font-size: ;
+}
+.gallery p{
+    font-size: 19px;
+    padding-bottom: 20px;
+    color: #867879;
+    font-weight: 350;
+    font-family: ;
+}
+.gallery h6{
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: tomato;
+    font-family: ;
+}
+.banner2-area{
+    background: url(../img/Ban.jpg);
+    background-position: inherit;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px;
+    background-color: rgba(0 0 0 0.3);
+    background-blend-mode: overlay;
+}
+.banner2{
+    margin-left: 52%;
+}
+.banner2-left{
+    flex-basis: 50%;
+}
+.banner2-right{
+    flex-basis: 50%;
+}
+.banner2-right h1{
+    width: 350px;
+    font-size: 50px;
+    color: #fff;
+    padding-bottom: 10px;
+    font-family: ;
+}
+.banner2-right h6{
+    width: 40px;
+    height: 1px;
+    background-color: red;
+}
+.banner2-right p{
+    width: 350px;
+    font-size: 14px;
+    color: #fff;
+    padding-top: 25px;
+    font-weight: 350;
+    font-family: ;
+}
+.banner2-right h4{
+    color: #fff;
+    letter-spacing: 3px
+    font-family: ;
+}
+.main-gallery{
+    display: flex;
+}
+.gallery-left{
+    flex-basis: 30%;
+    margin: 100px 0px;
+}
+.gallery-left h2{
+    width: 285px;
+    padding-bottom: 30px;
+    font-size: 30px;
+    font-family: ;
+}
+.gallery-left h5{
+    width: 40px;
+    height: 2px;
+    background: tomato;
+}
+.gallery-left p{
+    font-family: ;
+    padding: 40px 50px 40px 0px;
+    color: #867879;
+    font-size: 15px;
+    line-height: 22px;
+}
+.gallery-left button{
+    font-family: ;
+    background: #fb2056;
+    border: none;
+    border-radius: 25px;
+    padding: 13px 30px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+.gallery-left button:hover{
+    cursor: pointer;
+}
+.gellery-right{
+    flex-basis: 70%;
+    display: flex;
+    margin: 85px 0px;
+}
+.gellery-r-1{
+    text-align: center;
+}
+.gellery-r-1 img{
+    margin: 15px 10px 0px 10px;
+    flex-basis: 50%;
+}
+.gellery-r-2 img{
+    margin: 15px 10px 0px 0px;
+    flex-basis: 50%;
+}
+.footer-area{
+    background: #191919;
+}
+.footer{
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    padding: 40px 0px;
+    font-family: ;
+}
+.gallery-right{
+    display: flex;
+    width: ;
+}
