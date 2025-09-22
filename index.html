@@ -1,419 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Head Section Start from here -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Landing</title>
-  <!-- Bootstrap CSS Start from here -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap CSS End here -->
-  <style>
-  /* ========= Global CSS Start from here ========= */
-  html{ scroll-behavior:smooth; }
-  /* ========= Base / Desktop (>= 992px) ========= */
-  :root{
-    --fs-body: 18px;
-    --lh-body: 1.7;
-
-    --fs-h1: 48px; --lh-h1: 1.2;
-    --fs-h2: 40px; --lh-h2: 1.25;
-    --fs-h3: 32px; --lh-h3: 1.3;
-    --fs-h4: 24px; --lh-h4: 1.35;
-    --fs-h5: 20px; --lh-h5: 1.4;
-    --fs-h6: 18px; --lh-h6: 1.45;
-
-    --fs-p: 18px; --lh-p: 1.75;
-    --fs-small: 14px;
-
-    --fs-btn: 16px; /* Desktop button text */
-    --btn-minh: 44px; /* Touch-friendly height */
-    --btn-pad: 0.6rem 1.2rem;
-
-    --fs-card-title: 20px;
-    --fs-card-subtitle: 16px;
-    --fs-card-text: 16px;
-
-    --section-pad: 56px; /* section vertical spacing */
-    --gap: 1rem; /* grid gap */
-  }
-
-  html,body{ margin:0; }
-  body{
-    font: 400 var(--fs-body)/var(--lh-body) system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    color:#212529;
-    overflow-x:hidden;
-  }
-  section{ padding-block: var(--section-pad); }
-  img{ max-width:100%; height:auto; display:block; }
-
-  h1{ font-size: var(--fs-h1); line-height: var(--lh-h1); margin:0 0 .5em; }
-  h2{ font-size: var(--fs-h2); line-height: var(--lh-h2); margin:0 0 .6em; }
-  h3{ font-size: var(--fs-h3); line-height: var(--lh-h3); margin:0 0 .6em; }
-  h4{ font-size: var(--fs-h4); line-height: var(--lh-h4); margin:0 0 .7em; }
-  h5{ font-size: var(--fs-h5); line-height: var(--lh-h5); margin:0 0 .7em; }
-  h6{ font-size: var(--fs-h6); line-height: var(--lh-h6); margin:0 0 .8em; }
-  p { font-size: var(--fs-p); line-height: var(--lh-p); margin:0 0 1em; }
-  small{ font-size: var(--fs-small); }
-
-  .btn, .button, button{
-    font-size: var(--fs-btn);
-    line-height: 1.2;
-    min-height: var(--btn-minh);
-    padding: var(--btn-pad);
-  }
-
-  /* Keep button text/background same; only effects change */
-  .btn-primary{ background:#0d6efd; border-color:#0d6efd; color:#fff; }
-  .btn-primary:hover{ background:#0d6efd; border-color:#0d6efd; color:#fff; }
-
-  .card .card-title{ font-size: var(--fs-card-title); line-height: 1.35; margin-bottom:.4rem; }
-  .card .card-subtitle{ font-size: var(--fs-card-subtitle); opacity:.8; margin-bottom:.5rem; }
-  .card .card-text, .card p{ font-size: var(--fs-card-text); line-height: 1.7; }
-
-  /* Common grid helper (optional) */
-  .grid{ display:grid; gap: var(--gap); grid-template-columns: 1fr; }
-
-  /* ========= Tablet (>=768px and <992px) ========= */
-  @media (max-width: 991.98px){
-    :root{
-      --fs-body: 17px;
-      --fs-h1: 36px; --lh-h1: 1.2;
-      --fs-h2: 30px; --lh-h2: 1.25;
-      --fs-h3: 24px; --lh-h3: 1.3;
-      --fs-h4: 20px; --lh-h4: 1.35;
-      --fs-h5: 18px; --lh-h5: 1.4;
-      --fs-h6: 17px; --lh-h6: 1.45;
-
-      --fs-p: 16px;
-      --fs-small: 13px;
-
-      --fs-btn: 16px;
-      --btn-minh: 44px;
-
-      --fs-card-title: 18px;
-      --fs-card-subtitle: 15px;
-      --fs-card-text: 15px;
-
-      --section-pad: 48px;
-    }
-
-    .grid{ grid-template-columns: repeat(2, 1fr); }
-  }
-
-  /* ========= Mobile (<768px) ========= */
-  @media (max-width: 767.98px){
-    :root{
-      --fs-body: 16px;
-      --fs-h1: 28px; --lh-h1: 1.22;
-      --fs-h2: 24px; --lh-h2: 1.26;
-      --fs-h3: 20px; --lh-h3: 1.3;
-      --fs-h4: 18px; --lh-h4: 1.35;
-      --fs-h5: 16px; --lh-h5: 1.4;
-      --fs-h6: 15px; --lh-h6: 1.45;
-
-      --fs-p: 14.5px;
-      --fs-small: 12.5px;
-
-      --fs-btn: 15px;
-      --btn-minh: 44px; /* মোবাইলে ট্যাপ-সাইজ রাখছি 44px+ */
-      --btn-pad: 0.55rem 1rem;
-
-      --fs-card-title: 17px;
-      --fs-card-subtitle: 14px;
-      --fs-card-text: 14.5px;
-
-      --section-pad: 40px;
-      --gap: .9rem;
-    }
-
-    /* মোবাইলে টেক্সট সেন্টার দরকার হলে এই utility লাগাতে পারেন */
-    .text-center-sm{ text-align:center; }
-    /* মোবাইলে কার্ড/বাটনকে মাঝামাঝি রাখা */
-    .center-sm{ display:flex; justify-content:center; align-items:center; }
-
-    /* মোবাইলে paragraph 3-line clamp */
-    .clamp-3-sm{ display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-  }
-
-  /* ========= Optional: Navbar sticky & spacing ========= */
-  header.sticky-top{ top:0; z-index:1000; }
-  .navbar{ background:#fff; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
-  .nav-link{ transition: color .2s, opacity .2s; }
-  .nav-link:hover{ color:#0d6efd; opacity:.85; }
-  /* Keep nav items right-aligned on tablet/mobile without dropdown */
-  .navbar .navbar-nav{ gap:.75rem; }
-
-  /* ========= Optional: Button hover variants (একই রং, ভিন্ন effect) ========= */
-  .btn-variant-1{ transition: transform .2s ease, box-shadow .2s ease; }
-  .btn-variant-1:hover{ transform: translateY(-2px) scale(1.03); box-shadow: 0 10px 25px rgba(0,0,0,.08); }
-
-  .btn-variant-2{ border-radius:.5rem; transition: border-radius .25s ease, box-shadow .25s ease; }
-  .btn-variant-2:hover{ border-radius:2rem; box-shadow: 0 0 0 .25rem rgba(13,110,253,.15); }
-
-  .btn-variant-3{ position:relative; overflow:hidden; }
-  .btn-variant-3::after{
-    content:""; position:absolute; inset:0; background: rgba(255,255,255,.15);
-    clip-path: polygon(0 0,0 0,0 100%,0 100%); transition: clip-path .3s ease;
-  }
-  .btn-variant-3:hover::after{
-    clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
-  }
-
-  .btn-variant-4{ transition: transform .25s ease, box-shadow .25s ease; border:2px solid rgba(255,255,255,0); }
-  .btn-variant-4:hover{ transform: translateY(-1px); box-shadow:0 6px 18px rgba(13,110,253,.25); border-color: rgba(255,255,255,.25); }
-
-  /* ========= Cards: same hover effect everywhere ========= */
-  .card-hover{ transition: transform .25s, box-shadow .25s; }
-  .card-hover:hover{ transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.08); }
-
-  /* Helpers */
-  .section-subtitle{ opacity:.8; margin-bottom:1rem; }
-  /* ========= Global CSS End here ========= */
-  </style>
-  <!-- Head Section End here -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OutDoor</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Header/Nav Section Start from here -->
-  <header class="sticky-top">
-    <nav class="navbar py-2">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="#home">
-          <img src="img/logo1.png" alt="Logo" style="height:36px; width:auto;" />
-        </a>
-        <!-- No dropdown/collapse; keep items right aligned on all devices -->
-        <ul class="navbar-nav ms-auto flex-row flex-wrap justify-content-end align-items-center">
-          <li class="nav-item"><a class="nav-link px-2" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="#blog">Blog</a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- Header/Nav Section End here -->
+    
 
-  <!-- Home Section Start from here -->
-  <section id="home">
+<div class="banner-area" id="home">
     <div class="container">
-      <div class="row align-items-center gy-4">
-        <div class="col-12 col-lg-6 text-center-sm">
-          <h1 class="fw-bold">Explore AI Solutions</h1>
-          <p class="clamp-3-sm mb-4">We craft practical AI tools and experiences for web, mobile, and enterprise. From rapid prototypes to production-ready systems — built with performance, accessibility, and a clean UI.</p>
-          <div class="d-flex gap-2 flex-wrap center-sm">
-            <a href="#services" class="btn btn-primary btn-variant-1">Get Started</a>
-            <a href="#projects" class="btn btn-primary btn-variant-2">View Projects</a>
-            <a href="#contact" class="btn btn-primary btn-variant-3">Contact Us</a>
-          </div>
-        </div>
-        <div class="col-12 col-lg-6">
-          <img src="img/lower.jpg" alt="Hero" class="rounded shadow-sm">
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Home Section End here -->
-
-  <!-- About Section Start from here -->
-  <section id="about" class="bg-light">
-    <div class="container">
-      <div class="row gy-4 align-items-center">
-        <div class="col-12 col-md-6 order-md-2">
-          <img src="img/3.png" alt="About" class="rounded-3 shadow-sm">
-        </div>
-        <div class="col-12 col-md-6 order-md-1 text-center-sm">
-          <h2 class="fw-semibold">About Our AI Lab</h2>
-          <p class="clamp-3-sm">We specialize in NLP, computer vision, and data products. Our team blends research with product sense to deliver delightful, robust interfaces powered by scalable ML pipelines.</p>
-          <a href="#contact" class="btn btn-primary btn-variant-4">Work With Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- About Section End here -->
-
-  <!-- Services Section Start from here -->
-  <section id="services">
-    <div class="container">
-      <header class="mb-4 text-center-sm">
-        <h2>Services</h2>
-        <p class="section-subtitle m-0">Product design, model development, and integration</p>
-      </header>
-
-      <!-- Using CSS Grid helper for cards -->
-      <div class="grid">
-        <div class="card card-hover p-3">
-          <div class="card-body">
-            <h5 class="card-title">Chatbots & Assistants</h5>
-            <p class="card-text clamp-3-sm">Conversational UI with secure tools, memory, analytics, and multilingual support.</p>
-            <a href="#contact" class="btn btn-primary btn-variant-1">Request Demo</a>
-          </div>
-        </div>
-        <div class="card card-hover p-3">
-          <div class="card-body">
-            <h5 class="card-title">Vision & OCR</h5>
-            <p class="card-text clamp-3-sm">Image understanding, document parsing, and auto-tagging with high accuracy.</p>
-            <a href="#contact" class="btn btn-primary btn-variant-2">Request Demo</a>
-          </div>
-        </div>
-        <div class="card card-hover p-3">
-          <div class="card-body">
-            <h5 class="card-title">NLP & Search</h5>
-            <p class="card-text clamp-3-sm">Semantic search, summarization, and content workflows for your data.</p>
-            <a href="#contact" class="btn btn-primary btn-variant-3">Request Demo</a>
-          </div>
-        </div>
-        <div class="card card-hover p-3">
-          <div class="card-body">
-            <h5 class="card-title">Analytics & MLOps</h5>
-            <p class="card-text clamp-3-sm">Dashboards, evaluations, observability, and safe rollout strategies.</p>
-            <a href="#contact" class="btn btn-primary btn-variant-4">Request Demo</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Services Section End here -->
-
-  <!-- Projects Section Start from here -->
-  <section id="projects" class="bg-light">
-    <div class="container">
-      <header class="mb-4 text-center-sm">
-        <h2>Projects</h2>
-        <p class="section-subtitle m-0">Recent work across platforms</p>
-      </header>
-
-      <div class="row g-3">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card card-hover h-100">
-            <img src="img/4.png" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-              <h5 class="card-title">Customer Support Agent</h5>
-              <p class="card-text clamp-3-sm">Deflected tickets and improved CSAT with a safe, on-brand AI assistant.</p>
-              <a class="btn btn-primary btn-variant-2" href="#contact">Details</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card card-hover h-100">
-            <img src="img/5.png" class="card-img-top" alt="Project 2">
-            <div class="card-body">
-              <h5 class="card-title">Invoice OCR</h5>
-              <p class="card-text clamp-3-sm">Automated extraction with validations and human-in-the-loop tooling.</p>
-              <a class="btn btn-primary btn-variant-3" href="#contact">Details</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card card-hover h-100">
-            <img src="img/6.png" class="card-img-top" alt="Project 3">
-            <div class="card-body">
-              <h5 class="card-title">Semantic Search</h5>
-              <p class="card-text clamp-3-sm">RAG pipelines over private docs with guardrails and metrics.</p>
-              <a class="btn btn-primary btn-variant-1" href="#contact">Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Projects Section End here -->
-
-  <!-- Blog Section Start from here -->
-  <section id="blog">
-    <div class="container">
-      <header class="mb-4 text-center-sm">
-        <h2>Blog</h2>
-        <p class="section-subtitle m-0">Notes on design and engineering</p>
-      </header>
-      <div class="row g-3">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card card-hover h-100">
-            <div class="card-body">
-              <h5 class="card-title">Prompt Patterns</h5>
-              <p class="card-text clamp-3-sm">Reusable patterns for robust prompt engineering across tasks.</p>
-              <a href="#" class="btn btn-primary btn-variant-4">Read</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card card-hover h-100">
-            <div class="card-body">
-              <h5 class="card-title">Evaluations</h5>
-              <p class="card-text clamp-3-sm">Lightweight evals that track correctness, latency, and safety.</p>
-              <a href="#" class="btn btn-primary btn-variant-2">Read</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card card-hover h-100">
-            <div class="card-body">
-              <h5 class="card-title">Shipping AI UI</h5>
-              <p class="card-text clamp-3-sm">UX tips for building clear, forgiving AI interfaces.</p>
-              <a href="#" class="btn btn-primary btn-variant-3">Read</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Blog Section End here -->
-
-  <!-- Contact Section Start from here -->
-  <section id="contact" class="bg-light">
-    <div class="container">
-      <header class="mb-4 text-center-sm">
-        <h2>Contact</h2>
-        <p class="section-subtitle m-0">Tell us about your project</p>
-      </header>
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-8">
-          <form class="card shadow-sm">
-            <div class="card-body">
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <label class="form-label">Name</label>
-                  <input type="text" class="form-control" placeholder="Your name" required>
+        <div class="banner">
+            <div class="banner-top">
+                <div class="logo">
+                    <img src="img/logo1.png" alt="">
                 </div>
-                <div class="col-12 col-md-6">
-                  <label class="form-label">Email</label>
-                  <input type="email" class="form-control" placeholder="you@example.com" required>
+                <div class="nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="col-12">
-                  <label class="form-label">Message</label>
-                  <textarea class="form-control" rows="4" placeholder="How can we help?" required></textarea>
+                <div class="banner-button">
+                    <button>Take Action</button>
                 </div>
-              </div>
-              <div class="mt-3 center-sm">
-                <button type="submit" class="btn btn-primary btn-variant-1 px-4">Send Message</button>
-              </div>
             </div>
-          </form>
         </div>
-      </div>
+        <div class="banner-bottom">
+            <h3><i>Explore The Colurful World</i></h3>
+            <h1>A WONDERFUL GIFT</h1>
+            <div class="bottom-botton">
+                <button><a href="">LEARN MORE</a></button>
+            </div>
+        </div>
     </div>
-  </section>
-  <!-- Contact Section End here -->
+</div>               
+                <!-- <div class="banner-bottom">
+                    <h3><i>Explore The Colurful World</i></h3>
+                    <h1>A WONDERFUL GIFT</h1>
+                    <div class="bottom-botton">
+                        <button><a href="">LEARN MORE</a></button>
+                    </div>
+                </div> -->
+   
 
-  <!-- Footer Section Start from here -->
-  <footer class="py-4 border-top">
+
+<div class="banner-lower" id="about">
     <div class="container">
-      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between text-center-sm">
-        <small>North Bashabo, Dhaka, Bangladesh. Dhaka-1219 | Phone: +8801634845336 | Email: eyasinahmed13@gmail.com</small>
-        <small class="mt-2 mt-md-0">&copy; <span id="year"></span> AI Landing</small>
-      </div>
+        <div class="lower">
+            <div class="lower-left">
+                <img src="img/lower.jpg" alt="">
+            </div>
+            <div>
+                <p><i>" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio in, maiores repreht. "</i></p>
+                <h6>ADAM SENDLER</h6>
+            </div>
+        </div>
     </div>
-  </footer>
-  <!-- Footer Section End here -->
+</div>
 
-  <!-- Scripts Section Start from here -->
-  <script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Scripts Section End here -->
+<div class="intro-area" id="services">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-top">
+                <h2>UPCOMING EVENTS</h2>
+            </div>
+            <div class="intro-bottom">
+                <div class="gallery">
+                    <img src="img/bottom1.jpg" alt="">
+                    <h4>EVEREST CAMP TREK</h4>
+                    <p>Lorem ipsum dolor sit adipisicing elit. Et neque suscipit <br> tenetur, exercitatione reprehenderit fiis </p>
+                    <h6>LEARM MORE <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></h6>
+                </div>
+                <div class="gallery">
+                    <img src="img/2.png" alt="">
+                    <h4>WALKING HOLIDAYS</h4>
+                    <p>Lorem ipsum dolor sit adipisicing elit. Et neque suscipit <br> tenetur, exercitatione reprehenderit fiis </p>
+                    <h6>LEARM MORE <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="banner2-area" id="projects">
+            <div class="container">
+                <div class="banner2">
+                    <div class="banner2-left"></div>
+                    <div class="banner2-right">
+                        <h1>EXPLORE THE WORLD</h1>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Error dolorem reprehenderit reiciendis id laboriosam mollitia velit aut, deserunt sunt ratione ipsa odit blanditiis, iusto itaque, asperiores quaerat eaque beatae. Sapiente! </p>
+                    <h4>LEARM MORE <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="main-gallery-area" id="blog">
+    <div class="container">
+        <div class="main-gallery">
+            <div class="gallery-left">
+                <h2>UPCOMING TOURS & DESTRINATION</h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. In necessitatibus at voluptatum molestias labore quidem accusamus, atque numquam, culpa nisi earum voluptatibus quisquam mollitia pariatur dolor nobis nostrum, eligendi expedita? </p>
+                <button>LEARN MORE</button>
+            </div>
+            <div class="gallery-right">
+                <div class="gellery-r-1">
+                    <img src="img/3.png" alt="">
+                    <img src="img/4.png" alt="">
+                </div>
+                <div class="gellery-r-2">
+                <img src="img/5.png" alt="">
+                <img src="img/6.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-area" id="contact">
+    <div class="container">
+        <div class="footer">
+            <p>North Bashabo, Dhaka, Bangladesh. Dhaka-1219 | Phone:+8801634845336 | Email: eyasinahmed13@gmail.com</p>
+            <br>
+            <p>Copyright <span><i class="fa fa-copyright" aria-hidden="true"></i></span>2021 Outdoor Adventure</p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
